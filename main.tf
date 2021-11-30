@@ -32,7 +32,7 @@ resource "aws_instance" "terraformCM" {
   ami                    = var.AMIS[var.AWS_REGION]
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web_traffic.id]
-  key_name               = "ubuntu-tf"
+  key_name               = var.key_name
   count = var.instance_count
   tags = {
     Name = element(var.instance_tags, count.index)
@@ -55,7 +55,7 @@ resource "aws_instance" "terraformCM" {
     type        = "ssh"
     host        = self.public_ip
     user        = "ubuntu"
-    private_key = file("~/terraform/terraform-jenkins/ubuntu-tf.pem")
+    private_key = file("~/ubuntu-tf.pem")
   }
 
 }

@@ -26,3 +26,7 @@ variable "instance_count" {
   default = "2"
 }
 
+variable "key_name" {
+    description = " SSH keys to connect to ec2 instance"
+    default     =  "ubuntu-tf"
+}
