@@ -18,7 +18,7 @@ variable "AMIS" {
 }
 
 variable "instance_tags" {
-  type = list
+  type    = list(any)
   default = ["Terraform-1", "Terraform-2"]
 }
 
@@ -27,6 +27,6 @@ variable "instance_count" {
 }
 
 variable "key_name" {
-    description = " SSH keys to connect to ec2 instance"
-    default     =  "ubuntu-tf"
+  description = " SSH keys to connect to ec2 instance"
+  default     = "ubuntu-tf"
 }
